@@ -1,0 +1,31 @@
+{
+  "name": "riot-mattia-server",
+  "version": "0.0.1",
+  "description": "an exercise",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint . --ext .js"
+  },
+  "author": "Mattia Asti <mattia.asti@gmail.com> (https://mattia-asti.it)",
+  "license": "MIT",
+  "dependencies": {
+    "bluebird": "^3.4.0",
+    "body-parser": "^1.15.1",
+    "dotenv": "^2.0.0",
+    "express": "^4.13.4",
+    "level": "^1.4.0",
+    "level-exists": "^2.0.1",
+    "moment": "^2.13.0",
+    "node-fetch": "^1.5.2"
+  },
+  "devDependencies": {
+    "eslint": "^2.10.2",
+    "eslint-config-airbnb-base": "^3.0.1",
+    "eslint-plugin-import": "^1.8.0",
+    "pre-commit": "^1.1.3"
+  },
+  "pre-commit":[
+    "lint"
+  ]
+}
