@@ -1,14 +1,12 @@
-const db = require('./db.js');
+const db = require('./dbUtils.js');
 
 function featuredGames(request, response) {
   // db will check if the value is already in the cache and not expired
   //  or request a new version and save it
-  db.get('featured_games')
-    .then((value) => {
-      response.json(value);
-    })
-    .catch((err) => {
-      response.status(500).json(err);
+  db.getCurrentMatches()
+    .then((res) => {
+      console.log(typeof(res));
+      response.send(res);
     });
 }
 

@@ -3,13 +3,17 @@ require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
+const createMainCache = require('./src/createCache.js');
+
+console.log('Building the initial cache...');
+createMainCache();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: false,
 }));
 
-const routes = require('./routes.js');
+const routes = require('./src/routes.js');
 
 app.get('/featured_games', routes.featuredGames);
 
