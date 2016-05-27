@@ -6,7 +6,11 @@
 - Expose this data as an API for the client
 
 ### Prerequisite
-[Node 6.x](https://nodejs.org/en/)
+[Node 6.x](https://nodejs.org/en/)  
+Create a `.env` file in the root with your Riot API Key 
+```bash
+RIOT_API_KEY="this_is_not_secret"
+```
 
 ### Installation
 `npm install`
