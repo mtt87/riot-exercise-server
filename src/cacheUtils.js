@@ -36,11 +36,35 @@ function cacheSingleMatches(featuredGames) {
     .catch((err) => console.log(err));
 }
 
-function createMainCache() {
+function updateMainCache() {
   LolApi.getFeaturedGames('euw')
     .then(cacheFeaturedGames)
     .then(cacheSingleMatches)
     .catch((err) => console.log(err));
+}
+
+function setRefreshInterval(featuredGames) {
+  const intervalMs = featuredGames.clientRefreshInterval * 1000;
+  console.log('Will refresh the cache in ', intervalMs);
+  setInterval(() => {
+    updateMainCache();
+  }, intervalMs);
+  return featuredGames;
+}
+
+function createMainCache() {
+  return new Promise((resolve, reject) => {
+    LolApi.getFeaturedGames('euw')
+      .then(setRefreshInterval)
+      .then(cacheFeaturedGames)
+      .then(cacheSingleMatches)
+      .then(() => {
+        resolve(true);
+      })
+      .catch((err) => {
+        reject(err);
+      });
+  });
 }
 
 module.exports = createMainCache;

@@ -4,14 +4,15 @@
   "description": "an exercise",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint . --ext .js"
+    "lint": "eslint . --ext .js",
+    "start": "node index.js"
   },
   "author": "Mattia Asti <mattia.asti@gmail.com> (https://mattia-asti.it)",
   "license": "MIT",
   "dependencies": {
     "bluebird": "^3.4.0",
     "body-parser": "^1.15.1",
+    "cors": "^2.7.1",
     "dotenv": "^2.0.0",
     "express": "^4.13.4",
     "leagueapi": "^0.4.20",

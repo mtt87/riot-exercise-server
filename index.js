@@ -3,11 +3,13 @@ require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
-const createMainCache = require('./src/createCache.js');
+const createCache = require('./src/cacheUtils.js');
+const cors = require('cors');
 
 console.log('Building the initial cache...');
-createMainCache();
+createCache();
 
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: false,
